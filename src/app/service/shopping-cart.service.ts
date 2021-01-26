@@ -5,6 +5,7 @@ import { Product } from '../models/product';
 import { map } from 'rxjs/operators';
 import { ShoppingCart } from '../models/shopping-cart';
 import { SharedService } from './shared.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ import { SharedService } from './shared.service';
 export class ShoppingCartService {
   //url = 'http://localhost:3000';
   //url = 'https://my-json-server.typicode.com/pranav13/json-server';
-  url = 'http://localhost:9090/api';
+  //url = 'http://localhost:9090/api';
+  url = environment.baseURL+"/api";
+  
   private currentCartSubject: BehaviorSubject<ShoppingCart> = new BehaviorSubject(null);
   public currentCart: Observable<ShoppingCart>;
 

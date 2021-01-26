@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ShoppingCartService } from './shopping-cart.service';
 
 @Injectable({
@@ -8,8 +9,9 @@ import { ShoppingCartService } from './shopping-cart.service';
 export class OrderService {
   //url = 'http://localhost:3000';
   //url = 'https://my-json-server.typicode.com/pranav13/json-server';
-  url = 'http://localhost:9090/api';
-
+  //url = 'http://localhost:9090/api';
+  url = environment.baseURL+"/api";
+  
   constructor(private http: HttpClient,
     private shoppingCartService: ShoppingCartService
     ) { }

@@ -12,8 +12,8 @@ import { Product } from '../models/product';
 //localStorage.setItem("users", "{ id: 2, username: 'user', password: 'user', firstName: 'Normal', lastName: 'User', role: Role.User }");
 
  const users1: User[] = [
-    { id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: Role.Admin },
-    { id: 2, username: 'user', password: 'user', firstName: 'Normal', lastName: 'User', role: Role.User }
+    { id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', roles: [Role.Admin] },
+    { id: 2, username: 'user', password: 'user', firstName: 'Normal', lastName: 'User', roles: [Role.User] }
  ];
  const category1: Category[] =[
     {id: 1, categoryname:'Bread'},

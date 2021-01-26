@@ -29,7 +29,7 @@ export class BsNavbarComponent implements OnInit {
       // this.authenticationService.getEmitter().subscribe((user) => { 
       //     this.username = user.username;
       // }); 
-      // let cart$ = await this.shoppingCartService.getCart();
+       let cart$ = this.shoppingCartService.getCart();
       // this.shoppingCartItemCount = 0;
       // cart$.subscribe((cart:ShoppingCart) =>{
       //   for(let items of cart.items)
@@ -55,7 +55,7 @@ export class BsNavbarComponent implements OnInit {
   }
 
   isAdmin(){
-    if(this.authenticationService.currentUserValue.role == "Admin"){
+    if(this.authenticationService.currentUserValue.roles.indexOf( "ROLE_Admin")){
       return true;
     }
     return false;
