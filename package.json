@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild":"ng build --prod && npm install -g http-server-spa",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
     "start": "http-server-spa dist/shoppingCart index.html $PORT",
     "build": "ng build",
     "test": "ng test",
@@ -27,6 +27,7 @@
     "bootstrap": "^4.5.3",
     "datatables.net": "^1.10.23",
     "datatables.net-dt": "^1.10.23",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "ng2-validation": "^4.2.0",
     "rxjs": "~6.6.0",
