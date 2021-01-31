@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemsEntity } from 'shared/models/item';
-import { Product } from 'shared/models/product';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { ShoppingCartService } from 'shared/service/shopping-cart.service';
 
@@ -27,14 +26,6 @@ sum;
         this.shoppingCartItemCount += items.quantity;
         this.sum += items.price * items.quantity ;  
     }});
-      // cart$.subscribe((cart:ShoppingCart) =>{
-      //   this.cartItem = cart.items;
-      //   console.log(this.cartItem);
-      //   for(let items of cart.items){
-      //     this.shoppingCartItemCount += items.quantity;
-      //     this.sum += items.price * items.quantity ;  
-      // }
-      // })
   }
 
   getTotal(item : ItemsEntity){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { User } from 'shared/models/user';
 import { AuthenticationService } from 'shared/service/authentication.service';

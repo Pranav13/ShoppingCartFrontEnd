@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 
 @Injectable({

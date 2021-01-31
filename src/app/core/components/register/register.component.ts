@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { UserService } from 'shared/service/user.service';
+import { Router } from '@angular/router';
 import { AlertService } from 'shared/service/alert.service';
 import { AuthenticationService } from 'shared/service/authentication.service';
+import { UserService } from 'shared/service/user.service';
 
 @Component({
   selector: 'app-register',
@@ -62,17 +61,6 @@ export class RegisterComponent implements OnInit {
             this.loading = false;
         }
       );
-    //   this.userService.register(this.registerForm.value)
-    //       .pipe(first())
-    //       .subscribe(
-    //           data => {
-    //               this.alertService.success('Registration successful', true);
-    //               this.router.navigate(['/login']);
-    //           },
-    //           error => {
-    //               this.alertService.error(error);
-    //               this.loading = false;
-    //           });
   }
 
 }

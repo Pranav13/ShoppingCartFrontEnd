@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Product } from 'shared/models/product';

@@ -1,9 +1,9 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { User } from 'shared/models/user';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from 'environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from 'shared/models/user';
 
 @Injectable({
   providedIn: 'root'
