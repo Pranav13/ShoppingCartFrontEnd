@@ -2,8 +2,7 @@
     <div class="container">
       <div class="container-fluid">
         <a class="navbar-brand" routerLink="/">
-          <i class="fa fa-leaf" aria-hidden="true"></i>
-         
+          <i class="fa fa-book" aria-hidden="true"></i>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,7 +13,7 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/shopping-cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class="badge badge-warning badge-pill">
+                <span class="badge badge-primary badge-pill">
                   {{shoppingCartItemCount }}
                 </span>
                 </a>
@@ -27,7 +26,7 @@
             </li>
             <li  *ngIf="this.authenticationService.currentUserValue" ngbDropdown  class="nav-item dropdown">
               <a  ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">
-                {{this.authenticationService.currentUserValue.username | uppercase}}  <i class="fa fa-user"></i></a>
+                {{this.authenticationService.currentUserValue.username | uppercase}}  <i class="fa fa-user" style="color:rgb(103, 103, 248)" ></i></a>
                
               <ul ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown01">
                 <li><a class="dropdown-item" routerLink="/my/orders">My Orders</a></li>

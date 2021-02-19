@@ -1,8 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';
 import { AuthGuard } from 'shared/helper/auth.guard';
 import { SharedModule } from 'shared/shared.module';
 
@@ -10,7 +7,6 @@ import { AdminOrdersComponent } from './components/admin-orders/admin-orders.com
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { AdminGuard } from './service/admin.guard';
-
 
 
 @NgModule({

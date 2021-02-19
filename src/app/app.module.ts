@@ -5,7 +5,6 @@ import { ErrorInterceptor } from 'shared/helper/error.interceptor';
 import { JwtInterceptor } from 'shared/helper/jwt.interceptor';
 
 import { AdminModule } from './admin/admin.module';
-import { AlertComponent } from './alert/alert.component';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -13,16 +12,14 @@ import { ShoppingModule } from './shopping/shopping.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AlertComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
     ShoppingModule,
-    CoreModule,
-    
+    CoreModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

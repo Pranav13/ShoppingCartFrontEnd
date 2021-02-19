@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { User } from 'shared/models/user';
@@ -19,7 +20,8 @@ export class BsNavbarComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService, 
               private shoppingCartService: ShoppingCartService,
-              private sharedService: SharedService
+              private sharedService: SharedService,
+              private router: Router
     ) { 
     
   }
@@ -37,7 +39,7 @@ export class BsNavbarComponent implements OnInit {
   }
 
   isAdmin(){
-    if(this.authenticationService.currentUserValue.roles.indexOf( "ROLE_Admin")){
+    if(this.authenticationService.currentUserValue.roles.includes( "ROLE_ADMIN")){
       return true;
     }
     return false;
@@ -45,6 +47,7 @@ export class BsNavbarComponent implements OnInit {
 
   logout(){
     this.authenticationService.logout();
+    this.router.navigate(['/']);
   }
 
 }
