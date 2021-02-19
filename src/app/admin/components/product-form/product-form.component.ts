@@ -63,7 +63,7 @@ export class ProductFormComponent implements OnInit {
     this.submitted = true;
 
     // reset alerts on submit
-    this.alertService.clear();
+    //this.alertService.clear();
 
     // stop here if form is invalid
     if (this.productForm.invalid) {
@@ -76,11 +76,11 @@ export class ProductFormComponent implements OnInit {
       this.productService.update(this.productForm.value)
           .subscribe(
               data => {
-                 // this.alertService.success('Registration successful', true);
+                  this.alertService.showSuccess('Product Updated Successfully');
                   this.router.navigate(['/admin/products']);
               },
               error => {
-                  this.alertService.error(error);
+                  //this.alertService.error(error);
                   //this.loading = false;
               });
 
@@ -92,7 +92,7 @@ export class ProductFormComponent implements OnInit {
                   this.router.navigate(['/admin/products']);
               },
               error => {
-                  this.alertService.error(error);
+                  //this.alertService.error(error);
                   //this.loading = false;
               });
     }
@@ -109,7 +109,7 @@ delete(){
                           this.router.navigate(['/admin/products']);
                       },
                       error => {
-                          this.alertService.error(error);
+                          //this.alertService.error(error);
                           //this.loading = false;
                       });
 }

@@ -8,16 +8,14 @@ import { ShoppingCartService } from './shopping-cart.service';
   providedIn: 'root'
 })
 export class OrderService {
-  url = environment.baseURL+"/api";
-  
-  constructor(private http: HttpClient,
-    private shoppingCartService: ShoppingCartService
-    ) { }
+  url = environment.baseURL + "/api";
 
-  async placeOrder(order){
-    console.log(JSON.stringify(order));
-    let result =  await this.http.post(this.url+"/orders",order).toPromise();
-    (await this.shoppingCartService.clearCart()).toPromise();
+  constructor(private http: HttpClient
+  ) { }
+
+  placeOrder(order) {
+    let result = this.http.post(this.url + "/orders", order)
+    //(await this.shoppingCartService.clearCart()).toPromise();
     return result;
   }
 }

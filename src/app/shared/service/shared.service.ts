@@ -14,9 +14,9 @@ export class SharedService {
 
   getData() {
     return this.dataObs$.asObservable();
-}
+  }
 
-updateData(data) {
+  updateData(data) {
     this.dataObs$.next(data);
-}
+  }
 }

@@ -8,11 +8,11 @@ import { Category } from 'shared/models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  url = environment.baseURL+"/api";
+  url = environment.baseURL + "/api";
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.url+'/category');
-}
+    return this.http.get<Category[]>(this.url + '/category');
+  }
 
 }
