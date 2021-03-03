@@ -15,7 +15,7 @@ export class OrderService {
 
   placeOrder(order) {
     let result = this.http.post(this.url + "/orders", order)
-    //(await this.shoppingCartService.clearCart()).toPromise();
+    //( this.shoppingCartService.clearCart());
     return result;
   }
 }

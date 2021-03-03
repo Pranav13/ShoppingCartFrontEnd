@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ProductsComponent } from 'app/shopping/components/products/products.component';
 
 
 
@@ -25,7 +26,11 @@ import { ToastrModule } from 'ngx-toastr';
    BrowserAnimationsModule,
    ToastrModule.forRoot(),
     RouterModule.forChild([
-      
+      { path: '',component: ProductsComponent},
+     
+      { path: 'login', component: LoginComponent},
+      { path: 'register', component: RegisterComponent},
+     
     ])
   ],
   exports:[

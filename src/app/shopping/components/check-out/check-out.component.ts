@@ -15,8 +15,8 @@ cart$:Observable<ShoppingCart>;
     private shoppingCartService: ShoppingCartService
     ) { }
 
-  async ngOnInit() {
-    this.cart$ = await this.shoppingCartService.getCart();
+   ngOnInit() {
+    this.cart$ =  this.shoppingCartService.getCart();
   }
 
   

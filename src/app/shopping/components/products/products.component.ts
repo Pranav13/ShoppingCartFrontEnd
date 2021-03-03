@@ -14,39 +14,32 @@ import { ShoppingCartService } from 'shared/service/shopping-cart.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:Product[] = [];
+  products: Product[] = [];
   filteredProduct: Product[] = [];
   category;
-  cart:any;
+  cart: any;
   private _data: ReplaySubject<ShoppingCart>;
   constructor(
     private route: ActivatedRoute,
-    private productService:ProductService,
-    private shoppingCartService:ShoppingCartService,
+    private productService: ProductService,
     private sharedService: SharedService
-    ) {
+  ) {
+    productService.getAll().pipe(switchMap(products => {
+      this.products = products
+      return route.queryParamMap;
+    }))
+      .subscribe(parmas => {
+        this.category = parmas.get('category');
 
-      
-      productService.getAll().pipe(switchMap(products => {
-        this.products = products
-        return route.queryParamMap;
-      }))
-      .subscribe(parmas =>{
-          this.category = parmas.get('category');
-          
-          this.filteredProduct = (this.category) ?
-            this.products.filter(p => p.category == this.category) :
-            this.products; 
-        });
-      
-     
-
-
-     }
-   ngOnInit() {
-    this._data = this.sharedService.dataObs$;
-      this._data.subscribe((cart:ShoppingCart) => {
-        this.cart = cart;    
+        this.filteredProduct = (this.category) ?
+          this.products.filter(p => p.category == this.category) :
+          this.products;
       });
+  }
+  ngOnInit() {
+    this._data = this.sharedService.dataObs$;
+    this._data.subscribe((cart: ShoppingCart) => {
+      this.cart = cart;
+    });
   }
 }

@@ -14,20 +14,20 @@ import { SharedService } from './shared.service';
 export class ShoppingCartService {
   url = environment.baseURL + "/api";
 
-  private currentCartSubject: BehaviorSubject<ShoppingCart> = new BehaviorSubject(null);
+ // private currentCartSubject: BehaviorSubject<ShoppingCart> = new BehaviorSubject(null);
   public currentCart: Observable<ShoppingCart>;
 
   constructor(private http: HttpClient, private _dataService: SharedService) {
-    this.currentCart = this.currentCartSubject.asObservable();
+    //this.currentCart = this.currentCartSubject.asObservable();
   }
 
-  public get currentCartValue(): ShoppingCart {
-    return this.currentCartSubject.value;
-  }
+  //public get currentCartValue(): ShoppingCart {
+   // return this.currentCartSubject.value;
+  //}
 
-  getProfileObs(): Observable<ShoppingCart> {
-    return this.currentCartSubject.asObservable();
-  }
+  //getProfileObs(): Observable<ShoppingCart> {
+   // return this.currentCartSubject.asObservable();
+  //}
 
   private create() {
     //var dateCreated = {dateCreated:new Date().getTime()};
@@ -44,8 +44,8 @@ export class ShoppingCartService {
       }));
   }
 
-  async clearCart() {
-    let cartid = await this.getOrCreateCartId();
+   clearCart() {
+    let cartid =  this.getOrCreateCartId();
     localStorage.removeItem('cartId');
     return this.http.delete<ShoppingCart>(this.url + '/shopping-carts/' + cartid);
   }
@@ -62,16 +62,16 @@ export class ShoppingCartService {
     }
   }
 
-  async addTocart(product: Product) {
-    let cartId = await this.getOrCreateCartId();
+   addTocart(product: Product) {
+    let cartId =  this.getOrCreateCartId();
     this.http.put(this.url + '/shopping-carts/' + cartId + "/" + 1, product).subscribe((response: ShoppingCart) => {
       this._dataService.updateData(response);
     })
   }
 
 
-  async removeFromCart(product: Product) {
-    let cartId = await this.getOrCreateCartId();
+   removeFromCart(product: Product) {
+    let cartId =  this.getOrCreateCartId();
     this.http.put(this.url + '/shopping-carts/' + cartId + "/" + -1, product).subscribe((response: ShoppingCart) => {
       // console.log(response);
       this._dataService.updateData(response);

@@ -15,13 +15,12 @@ shoppingCartItemCount;
 sum;
   constructor(private shoppingCartService:ShoppingCartService) { }
 
-  async ngOnInit() {
-      let cart$ = await this.shoppingCartService.getCart();
+   ngOnInit() {
+      let cart$ =  this.shoppingCartService.getCart();
       this.shoppingCartItemCount = 0;
       this.sum = 0;
     cart$.toPromise().then((cart:ShoppingCart) =>{
       this.cartItem = cart.items;
-      console.log(this.cartItem);
       for(let items of cart.items){
         this.shoppingCartItemCount += items.quantity;
         this.sum += items.price * items.quantity ;  
@@ -32,10 +31,10 @@ sum;
     return item.price * item.quantity;
   }
 
-  async clearCart(){
+   clearCart(){
     this.cartItem = [];
     this.shoppingCartItemCount = 0;
-    let cart$ = await this.shoppingCartService.clearCart();
+    let cart$ =  this.shoppingCartService.clearCart();
     cart$.subscribe((cart) =>{
         
     })

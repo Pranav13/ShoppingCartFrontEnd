@@ -62,9 +62,6 @@ export class ProductFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // reset alerts on submit
-    //this.alertService.clear();
-
     // stop here if form is invalid
     if (this.productForm.invalid) {
         return;
@@ -99,19 +96,6 @@ export class ProductFormComponent implements OnInit {
 
     
 
-}
-
-delete(){
-  this.productService.delete(this.id)
-                    .subscribe(
-                      data => {
-                         // this.alertService.success('Registration successful', true);
-                          this.router.navigate(['/admin/products']);
-                      },
-                      error => {
-                          //this.alertService.error(error);
-                          //this.loading = false;
-                      });
 }
 
 }

@@ -1,3 +1,9 @@
 .dropdown-toggle{
 cursor: ponter;
 }
+
+ nav.navbar ul li > ul a:hover {
+    background: #000000;
+    color:white;
+    box-shadow: none;
+  }
