@@ -10,12 +10,20 @@ import { ShoppingCartService } from './shopping-cart.service';
 export class OrderService {
   url = environment.baseURL + "/api";
 
-  constructor(private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient,
+              private shoppingCartService:ShoppingCartService) { }
 
   placeOrder(order) {
-    let result = this.http.post(this.url + "/orders", order)
-    //( this.shoppingCartService.clearCart());
+    let result = this.http.post(this.url + "/orders", order);
+    let cart$ =  this.shoppingCartService.clearCart();
+    cart$.subscribe((cart) =>{
+        
+    })
     return result;
   }
+
+  getAllOrder(){
+    return this.http.get(this.url + "/orders");
+  }
+
 }

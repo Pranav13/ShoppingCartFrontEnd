@@ -22,10 +22,12 @@ export class ShippingFormComponent implements OnInit {
     this.userId = this.authService.currentUserValue.username;
   }
 
-  async placeOrder() {
+   placeOrder() {
     let order = new Order(this.userId,this.shipping,this.cart);
-    let result:any = await this.orderService.placeOrder(order);
-    this.router.navigate(['/order-success',result.id]);
+     this.orderService.placeOrder(order).subscribe((result:any) => {
+      this.router.navigate(['/order-success',result.id]);
+    });
+    
   } 
 
 }

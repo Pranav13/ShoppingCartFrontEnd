@@ -20,8 +20,8 @@ sum;
       this.shoppingCartItemCount = 0;
       this.sum = 0;
     cart$.toPromise().then((cart:ShoppingCart) =>{
-      this.cartItem = cart.items;
-      for(let items of cart.items){
+      this.cartItem = cart.itemRequests;
+      for(let items of cart.itemRequests){
         this.shoppingCartItemCount += items.quantity;
         this.sum += items.price * items.quantity ;  
     }});

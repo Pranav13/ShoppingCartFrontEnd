@@ -11,7 +11,7 @@ export class ShoppingCartSummaryComponent {
 @Input('cart') cart:ShoppingCart;
 
 getTotalItem(){
-  return this.cart.items.length;
+  return this.cart.itemRequests.length;
 }
 
 getItemPrice(item: ItemsEntity){
@@ -20,7 +20,7 @@ getItemPrice(item: ItemsEntity){
 
 getTotalCartPrice(){
   let sum = 0;
-  for(let item of this.cart.items){
+  for(let item of this.cart.itemRequests){
       sum += item.price * item.quantity;
   }
   return sum;

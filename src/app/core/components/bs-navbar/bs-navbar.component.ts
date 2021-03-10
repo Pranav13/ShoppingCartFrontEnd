@@ -31,7 +31,7 @@ export class BsNavbarComponent implements OnInit {
       this._data = this.sharedService.dataObs$;
       this._data.subscribe((data:ShoppingCart) => {
         this.shoppingCartItemCount = 0;
-           for(let items of data.items)
+           for(let items of data.itemRequests)
              this.shoppingCartItemCount += items.quantity;  
            
       });

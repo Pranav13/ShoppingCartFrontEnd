@@ -1,1 +1,24 @@
-<p>admin-orders works!</p>
+<table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+[dtTrigger]="dtTrigger">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.shipping.name }}</td>
+              <td>{{ order.orderdate | date}}</td>
+                <td>
+                    <ul class="list-inline m-0">
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip"  title="Print" 
+                            ><i class="fa fa-print"></i></button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+    </tbody>
+</table>

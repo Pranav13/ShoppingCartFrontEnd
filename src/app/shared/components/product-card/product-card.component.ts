@@ -23,9 +23,9 @@ constructor(private cartService: ShoppingCartService) { }
   }
 
   getQuantity(){
-    if(!this.shoppingCart || !this.shoppingCart.items) return 0;
+    if(!this.shoppingCart || !this.shoppingCart.itemRequests) return 0;
     
-    let item = this.shoppingCart.items.find(x => x.id == this.product.id);
+    let item = this.shoppingCart.itemRequests.find(x => x.id == this.product.id);
     return item ? item.quantity : 0;
   }
 
