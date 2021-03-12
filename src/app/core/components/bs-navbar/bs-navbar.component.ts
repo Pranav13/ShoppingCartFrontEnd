@@ -15,7 +15,7 @@ import { ShoppingCartService } from 'shared/service/shopping-cart.service';
 export class BsNavbarComponent implements OnInit {
   username: string;
    user:User ;
-   shoppingCartItemCount;
+   shoppingCartItemCount = 0;
    private _data: ReplaySubject<ShoppingCart>;
 
   constructor(public authenticationService: AuthenticationService, 

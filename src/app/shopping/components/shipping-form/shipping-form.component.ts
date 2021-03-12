@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Order } from 'shared/models/order';
 import { AuthenticationService } from 'shared/service/authentication.service';
 import { OrderService } from 'shared/service/order.service';
+import { SharedService } from 'shared/service/shared.service';
 
 @Component({
   selector: 'shipping-form',
@@ -16,7 +17,8 @@ export class ShippingFormComponent implements OnInit {
   constructor( 
     private router: Router,
     private authService: AuthenticationService,
-    private orderService: OrderService) { }
+    private orderService: OrderService,
+    private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.userId = this.authService.currentUserValue.username;
@@ -27,7 +29,7 @@ export class ShippingFormComponent implements OnInit {
      this.orderService.placeOrder(order).subscribe((result:any) => {
       this.router.navigate(['/order-success',result.id]);
     });
-    
+    this.sharedService.updateData(null);
   } 
 
 }

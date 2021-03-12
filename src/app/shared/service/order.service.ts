@@ -26,4 +26,8 @@ export class OrderService {
     return this.http.get(this.url + "/orders");
   }
 
+  getAllOrderWithUser(username){
+    return this.http.get(this.url + "/orders/user/"+username);
+  }
+
 }
